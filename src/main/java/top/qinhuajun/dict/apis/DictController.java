@@ -6,10 +6,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/dicts")
-public class DictController {
+public class DictController implements DictDoc {
 
-    @GetMapping(value = {"", "/"})
-    Result<Dict> queryDict() {
+    @Override
+    @GetMapping(value = {""})
+    public Result<Dict> queryDict(DictQuery query) {
         return new JsonResult<Dict>(1, "hello", new Dict("key", "value"));
+    }
+
+    @Override
+    @GetMapping(value = {"/groups"})
+    public Result<DictGroup> queryDictGroup(DictGroupQuery query) {
+        return null;
     }
 }

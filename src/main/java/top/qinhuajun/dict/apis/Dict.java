@@ -7,10 +7,12 @@ import java.io.Serializable;
 @Getter
 public class Dict implements Serializable {
     String key;
-    String value;
+    String name;
+    DictGroup group;
+    Dict parent;
 
     public Dict(String key, String value) {
         this.key = key;
-        this.value = value;
+        this.name = value;
     }
 }
